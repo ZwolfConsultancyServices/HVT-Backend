@@ -24,7 +24,7 @@ app.use("/ ", (req, res) => {
 
 mongoose.connect(process.env.mongoDB_URL,{})
     .then(() => {
-        app.listen(process.env.Port, () => {
+        app.listen(process.env.Port || 9000, () => {
             console.log("server is up and running");
             console.log("connected to the database");
         })
