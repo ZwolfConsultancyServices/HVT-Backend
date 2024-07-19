@@ -12,7 +12,7 @@ const port = process.env.PORT || 6000
 const app = express()
 app.use(cors())
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+
 
 app.use(bodyParser.json({ extended: true, limit: "5mb" }))
 app.use(bodyParser.urlencoded({ extended: true, limit: "5mb" }))
@@ -23,9 +23,7 @@ app.use(morgan("dev"))
 app.use("/user", userRoute)
 app.use("/admin", adminroutes)
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'));
-});
+
 
 app.use("/", (req, res) => {
     res.send('server is running  ')
